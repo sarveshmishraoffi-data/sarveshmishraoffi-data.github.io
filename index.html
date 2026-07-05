@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarvesh Mishra | AI Engineer & Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Sarvesh Mishra, M.Tech CSE student at NIT Mizoram and Research Intern at IIT (ISM) Dhanbad. Specializing in Deep Learning, Computer Vision, and Backend Development.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/sarveshmishracse">
+    <meta property="og:title" content="Sarvesh Mishra | AI Engineer & Full-Stack Developer">
+    <meta property="og:description" content="M.Tech CSE at NIT Mizoram | Research Intern at IIT (ISM) Dhanbad. Specializing in Deep Learning, Computer Vision, and Backend Development.">
+    <meta property="og:image" content="assets/avatar.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body class="dark-theme">
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress-bar"></div>
+
+    <!-- Interactive Background Canvas Particles -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Background Glows -->
+    <div class="glow-bg glow-1"></div>
+    <div class="glow-bg glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">Sarvesh<span>.mishra</span></a>
+            <nav class="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#coursework" class="nav-link">Coursework</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <!-- Theme Switcher -->
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="#contact" class="btn btn-outline btn-sm">Hire Me</a>
+                <button class="mobile-nav-toggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="section-container hero-grid">
+                <div class="hero-info scroll-reveal">
+                    <span class="badge hero-badge">Open to Opportunities</span>
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">Sarvesh Mishra</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        I build <span class="typing-text" id="typing-target"></span>
+                    </h2>
+                    <p class="hero-description">
+                        AI Engineer specializing in Deep Learning and Computer Vision. Currently developing automated document analysis pipelines as a Research Intern at <strong>IIT (ISM) Dhanbad</strong> on a DST-funded project, while pursuing my M.Tech at <strong>NIT Mizoram</strong>.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                        <a href="assets/Sarvesh_Mishra_Resume.pdf" download class="btn btn-secondary" title="Download Resume PDF">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="https://www.linkedin.com/in/sarveshmishracse" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/sarveshmishracse" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:sarveshmishraoffi@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="tel:+916387032699" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+                    </div>
+                </div>
+                <div class="hero-visual scroll-reveal">
+                    <div class="avatar-container">
+                        <div class="avatar-glow"></div>
+                        <img src="assets/avatar.jpg" alt="Sarvesh Mishra Avatar" class="avatar-img">
+                        <div class="tech-tag tag-pytorch"><i class="fa-solid fa-fire"></i> PyTorch</div>
+                        <div class="tech-tag tag-python"><i class="fa-brands fa-python"></i> Python</div>
+                        <div class="tech-tag tag-node"><i class="fa-brands fa-node-js"></i> Node.js</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Education Section -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-title">My Journey & Education</h2>
+                    <p class="section-subtitle">Bridging academic excellence and cutting-edge deep learning research.</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-content scroll-reveal">
+                        <h3>Passionate Researcher & Developer</h3>
+                        <p>
+                            Currently working on a prestigious DST-funded project at <strong>IIT (ISM) Dhanbad</strong>, I design deep learning models for document analysis and automated processing. I combine theoretical foundations in computer science with solid engineering principles to build robust web systems and neural architectures.
+                        </p>
+                        <p>
+                            My background spans from fundamental electronics to advanced AI topics, giving me a unique full-stack view of computing and hardware-software systems.
+                        </p>
+                        <div class="stats-row">
+                            <div class="stat-card">
+                                <span class="stat-num">7.92</span>
+                                <span class="stat-label">M.Tech CGPA</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-num">8.15</span>
+                                <span class="stat-label">B.Tech CGPA</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-num">3+</span>
+                                <span class="stat-label">Production Projects</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-timeline scroll-reveal">
+                        <h3 class="timeline-title">Education Timeline</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2025 - 2027</span>
+                                    <h4>M.Tech in Computer Science & Engineering</h4>
+                                    <h5>National Institute of Technology, Mizoram</h5>
+                                    <p>Focusing on advanced machine learning, neural networks, and pattern recognition. Current CGPA: <strong>7.92</strong></p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2022 - 2025</span>
+                                    <h4>B.Tech in Computer Science & Engineering</h4>
+                                    <h5>University of Lucknow</h5>
+                                    <p>Learned core computer science fundamentals, including OS, DBMS, OOP, and data structures. Graduated with a CGPA of <strong>8.15</strong></p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2018 - 2021</span>
+                                    <h4>Diploma in Electronics Engineering</h4>
+                                    <h5>Government Polytechnic Deoria</h5>
+                                    <p>Received comprehensive training in digital electronics, microprocessors, and circuit design. Completed with <strong>79.6%</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-tag">Expertise</span>
+                    <h2 class="section-title">Technical Toolbelt</h2>
+                    <p class="section-subtitle">A curated set of tools and technologies I rely on to bring projects to life.</p>
+                </div>
+                <div class="skills-grid">
+                    <!-- ML/AI Category -->
+                    <div class="skill-category-card scroll-reveal">
+                        <div class="category-header">
+                            <div class="category-icon ml-icon"><i class="fa-solid fa-brain"></i></div>
+                            <h3>Machine Learning & AI</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag-item">PyTorch</span>
+                            <span class="skill-tag-item">Deep Learning</span>
+                            <span class="skill-tag-item">Computer Vision</span>
+                            <span class="skill-tag-item">Faster R-CNN</span>
+                            <span class="skill-tag-item">YOLO</span>
+                            <span class="skill-tag-item">U-Net</span>
+                            <span class="skill-tag-item">OpenCV</span>
+                            <span class="skill-tag-item">Scikit-learn</span>
+                            <span class="skill-tag-item">SAM (Segment Anything)</span>
+                            <span class="skill-tag-item">CVAT / Annotation</span>
+                        </div>
+                    </div>
+
+                    <!-- Languages Category -->
+                    <div class="skill-category-card scroll-reveal">
+                        <div class="category-header">
+                            <div class="category-icon lang-icon"><i class="fa-solid fa-code"></i></div>
+                            <h3>Programming Languages</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag-item">Python</span>
+                            <span class="skill-tag-item">C++</span>
+                            <span class="skill-tag-item">C</span>
+                            <span class="skill-tag-item">JavaScript</span>
+                            <span class="skill-tag-item">SQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Web & Backend Category -->
+                    <div class="skill-category-card scroll-reveal">
+                        <div class="category-header">
+                            <div class="category-icon web-icon"><i class="fa-solid fa-server"></i></div>
+                            <h3>Backend & Databases</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag-item">Node.js</span>
+                            <span class="skill-tag-item">Express.js</span>
+                            <span class="skill-tag-item">REST APIs</span>
+                            <span class="skill-tag-item">MongoDB</span>
+                            <span class="skill-tag-item">PostgreSQL</span>
+                            <span class="skill-tag-item">MySQL</span>
+                            <span class="skill-tag-item">Session Mgmt</span>
+                            <span class="skill-tag-item">JWT Auth</span>
+                        </div>
+                    </div>
+
+                    <!-- DevOps & Tools Category -->
+                    <div class="skill-category-card scroll-reveal">
+                        <div class="category-header">
+                            <div class="category-icon devops-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <h3>DevOps & Tools</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag-item">Docker</span>
+                            <span class="skill-tag-item">Nuclio</span>
+                            <span class="skill-tag-item">Git / GitHub</span>
+                            <span class="skill-tag-item">Google Colab</span>
+                            <span class="skill-tag-item">Jupyter Notebook</span>
+                            <span class="skill-tag-item">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relevant Coursework Section -->
+        <section id="coursework" class="coursework-section">
+            <div class="section-container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-tag">Academics</span>
+                    <h2 class="section-title">Relevant Coursework</h2>
+                </div>
+
+                <!-- M.Tech Coursework Section -->
+                <div class="coursework-group scroll-reveal">
+                    <h3 class="group-title"><i class="fa-solid fa-graduation-cap"></i> M.Tech Coursework (NIT Mizoram)</h3>
+                    <div class="coursework-semesters">
+                        <!-- M.Tech 2nd Semester -->
+                        <div class="semester-box">
+                            <h4 class="sem-subtitle">M.Tech 2nd Semester</h4>
+                            <div class="sem-split-grid">
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge theory">Theory</span> Theory of Computing</li>
+                                        <li><span class="course-badge theory">Theory</span> Data Mining</li>
+                                        <li><span class="course-badge theory">Theory</span> Natural Language Processing</li>
+                                        <li><span class="course-badge theory">Theory</span> Big Data Analytics</li>
+                                        <li><span class="course-badge theory">Theory</span> Deep Learning</li>
+                                    </ul>
+                                </div>
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge seminar">Seminar</span> Term Paper & Seminar</li>
+                                        <li><span class="course-badge lab">Lab</span> Deep Learning Lab</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- M.Tech 1st Semester -->
+                        <div class="semester-box">
+                            <h4 class="sem-subtitle">M.Tech 1st Semester</h4>
+                            <div class="sem-split-grid">
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge theory">Theory</span> Advanced Data Structures and Algorithms</li>
+                                        <li><span class="course-badge theory">Theory</span> Advanced Computer Architecture</li>
+                                        <li><span class="course-badge theory">Theory</span> Distributed Systems</li>
+                                        <li><span class="course-badge theory">Theory</span> Advanced Database Systems</li>
+                                        <li><span class="course-badge theory">Theory</span> Pattern Recognition</li>
+                                    </ul>
+                                </div>
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge lab">Lab</span> Programming Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Systems Lab</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B.Tech Coursework Section -->
+                <div class="coursework-group scroll-reveal" style="margin-top: 5rem;">
+                    <h3 class="group-title"><i class="fa-solid fa-graduation-cap"></i> B.Tech Coursework (Lucknow University - Lateral Entry)</h3>
+                    <div class="coursework-years">
+                        <!-- B.Tech 4th Year -->
+                        <div class="semester-box">
+                            <h4 class="sem-subtitle">4th Year</h4>
+                            <div class="sem-split-grid">
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge theory">Theory</span> Advance DBMS</li>
+                                        <li><span class="course-badge theory">Theory</span> Computer Graphics</li>
+                                        <li><span class="course-badge theory">Theory</span> Artificial Intelligence</li>
+                                        <li><span class="course-badge theory">Theory</span> Data Mining</li>
+                                        <li><span class="course-badge theory">Theory</span> Industrial Management</li>
+                                        <li><span class="course-badge theory">Theory</span> Environmental Pollution & Management</li>
+                                        <li><span class="course-badge theory">Theory</span> Machine Learning</li>
+                                        <li><span class="course-badge theory">Theory</span> Digital Image Processing</li>
+                                        <li><span class="course-badge theory">Theory</span> Engineering Economics</li>
+                                    </ul>
+                                </div>
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge lab">Lab</span> Advance DBMS Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Graphics Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> DIP Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Project</li>
+                                        <li><span class="course-badge seminar">Seminar</span> Industrial Training</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- B.Tech 3rd Year -->
+                        <div class="semester-box">
+                            <h4 class="sem-subtitle">3rd Year</h4>
+                            <div class="sem-split-grid">
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge theory">Theory</span> Concepts of Operating System</li>
+                                        <li><span class="course-badge theory">Theory</span> Database Management Concepts</li>
+                                        <li><span class="course-badge theory">Theory</span> Software Engineering</li>
+                                        <li><span class="course-badge theory">Theory</span> Web Technology</li>
+                                        <li><span class="course-badge theory">Theory</span> Compiler Design</li>
+                                        <li><span class="course-badge theory">Theory</span> Design and Analysis of Algorithm</li>
+                                        <li><span class="course-badge theory">Theory</span> Computer Network</li>
+                                        <li><span class="course-badge theory">Theory</span> Computer Architecture</li>
+                                        <li><span class="course-badge theory">Theory</span> Graph Theory</li>
+                                        <li><span class="course-badge theory">Theory</span> Software Project Management</li>
+                                    </ul>
+                                </div>
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge lab">Lab</span> Operating System Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Database Management System Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Software Engineering Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Web Technology Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Design and Analysis of Algorithm Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Computer Network Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Mini Project</li>
+                                        <li><span class="course-badge seminar">Seminar</span> Seminar</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- B.Tech 2nd Year -->
+                        <div class="semester-box">
+                            <h4 class="sem-subtitle">2nd Year (Lateral Entry)</h4>
+                            <div class="sem-split-grid">
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge theory">Theory</span> Mathematics-III</li>
+                                        <li><span class="course-badge theory">Theory</span> Network Analysis & Synthesis</li>
+                                        <li><span class="course-badge theory">Theory</span> Data Structure Primer Using C</li>
+                                        <li><span class="course-badge theory">Theory</span> Numerical and Statistical Technique</li>
+                                        <li><span class="course-badge theory">Theory</span> Digital Circuits & Logic Design</li>
+                                        <li><span class="course-badge theory">Theory</span> Environment & Ecology</li>
+                                        <li><span class="course-badge theory">Theory</span> Discrete Mathematical Structure</li>
+                                        <li><span class="course-badge theory">Theory</span> Computer Organization</li>
+                                        <li><span class="course-badge theory">Theory</span> Theory of Automata</li>
+                                        <li><span class="course-badge theory">Theory</span> Object Oriented Programming</li>
+                                        <li><span class="course-badge theory">Theory</span> Fundamentals of Microprocessor</li>
+                                        <li><span class="course-badge theory">Theory</span> Human Values & Ethics</li>
+                                    </ul>
+                                </div>
+                                <div class="sem-split-column">
+                                    <ul class="sem-course-list">
+                                        <li><span class="course-badge lab">Lab</span> Network Analysis & Synthesis Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Data Structure Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Numerical Technique Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Digital Circuits & Logic Design Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Computer Organization Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Automata Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Object Oriented Programming / Java Lab</li>
+                                        <li><span class="course-badge lab">Lab</span> Microprocessor Lab</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="section-container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-tag">Experience</span>
+                    <h2 class="section-title">Professional Training</h2>
+                    <p class="section-subtitle">Real-world experience applying AI models to critical financial infrastructures.</p>
+                </div>
+                <div class="experience-card scroll-reveal">
+                    <div class="experience-header">
+                        <div class="company-logo">
+                            <i class="fa-solid fa-university"></i>
+                        </div>
+                        <div class="experience-titles">
+                            <h3>Research Intern</h3>
+                            <h4>IIT (ISM) Dhanbad, Jharkhand (DST Funded)</h4>
+                            <span class="exp-date">May 2026 – Present</span>
+                        </div>
+                    </div>
+                    <div class="experience-body">
+                        <p class="exp-project-title">
+                            <strong>Project:</strong> Design and Development of a Deep Learning Assisted Smartphone-Based Application Towards the Automated Cheque Clearing Process in Banking System.
+                        </p>
+                        <ul class="exp-bullets">
+                            <li><i class="fa-solid fa-chevron-right"></i> Developed annotation pipelines in CVAT for cheque document analysis using manual and semi-automatic annotation workflows.</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Integrated Segment Anything Model (SAM) with CVAT to accelerate annotation and dataset creation.</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Trained and evaluated Faster R-CNN (ResNet-50-FPN and ResNet-18-FPN) models for handwritten cheque field detection and localization.</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Integrated YOLO-based object detection and segmentation models into CVAT using Docker and Nuclio for AI-assisted annotation.</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Implemented cheque dataset preparation, augmentation, model evaluation, deployment, and domain adaptation for banking documents.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-tag">Showcase</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Here is a selection of projects I built using machine learning and modern web technologies.</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="project-tabs scroll-reveal">
+                    <button class="tab-btn active" data-filter="all">All</button>
+                    <button class="tab-btn" data-filter="ai-ml">AI & ML</button>
+                    <button class="tab-btn" data-filter="web-dev">Web Development</button>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card scroll-reveal" data-category="ai-ml">
+                        <div class="project-header">
+                            <div class="project-top">
+                                <span class="project-tag">Computer Vision</span>
+                                <button class="btn-details-modal open-modal-btn" data-project="cheque" title="View Full Details"><i class="fa-solid fa-up-right-from-square"></i></button>
+                            </div>
+                            <h3 class="project-title">Cheque Field Detection using Faster R-CNN</h3>
+                        </div>
+                        <div class="project-body">
+                            <p>Created a multi-class cheque field detection pipeline using Faster R-CNN (ResNet50-FPN) for labels. Designed a custom annotation conversion pipeline to transform YOLO-format labels into Pascal VOC bounding boxes.</p>
+                            <div class="project-tech-stack">
+                                <span>PyTorch</span>
+                                <span>Faster R-CNN</span>
+                                <span>OpenCV</span>
+                                <span>CVAT</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <span class="proj-badge ongoing-badge"><i class="fa-solid fa-spinner fa-spin"></i> Research Project</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card scroll-reveal" data-category="ai-ml">
+                        <div class="project-header">
+                            <div class="project-top">
+                                <span class="project-tag">Machine Learning</span>
+                                <button class="btn-details-modal open-modal-btn" data-project="predictmedix" title="View Full Details"><i class="fa-solid fa-up-right-from-square"></i></button>
+                            </div>
+                            <h3 class="project-title">PredictMedix - Medical Cost Prediction</h3>
+                        </div>
+                        <div class="project-body">
+                            <p>Architected an end-to-end ML pipeline for healthcare cost prediction using structured datasets, performing preprocessing, feature engineering, and exploratory data analysis.</p>
+                            <div class="project-tech-stack">
+                                <span>Python</span>
+                                <span>Scikit-learn</span>
+                                <span>Pandas</span>
+                                <span>Gradient Boosting</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/sarveshmishracse" target="_blank" class="proj-link"><i class="fa-brands fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card scroll-reveal" data-category="web-dev">
+                        <div class="project-header">
+                            <div class="project-top">
+                                <span class="project-tag">Backend Web</span>
+                                <button class="btn-details-modal open-modal-btn" data-project="travelquest" title="View Full Details"><i class="fa-solid fa-up-right-from-square"></i></button>
+                            </div>
+                            <h3 class="project-title">Travel Quest - Hotel Booking Backend</h3>
+                        </div>
+                        <div class="project-body">
+                            <p>Planned and delivered a scalable backend for a hotel booking platform using Node.js, Express, and MongoDB, designing RESTful APIs with session management and authentication.</p>
+                            <div class="project-tech-stack">
+                                <span>Node.js</span>
+                                <span>Express.js</span>
+                                <span>MongoDB</span>
+                                <span>REST API</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/sarveshmishracse" target="_blank" class="proj-link"><i class="fa-brands fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Extra Section -->
+        <section id="certifications" class="certifications-section">
+            <div class="section-container cert-flex">
+                <div class="cert-box scroll-reveal">
+                    <h3 class="extra-title"><i class="fa-solid fa-award"></i> Certifications</h3>
+                    <ul class="cert-list">
+                        <li>
+                            <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="cert-info">
+                                <h4>GenAI Powered Data Analytics</h4>
+                                <span>Forage | Job Simulation (2026)</span>
+                                <a href="https://www.theforage.com/" target="_blank" class="cert-link">Verify Credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cert-icon"><i class="fa-solid fa-brain"></i></div>
+                            <div class="cert-info">
+                                <h4>Prompt Engineering using Generative AI</h4>
+                                <span>Internshala Trainings (2024)</span>
+                                <a href="https://trainings.internshala.com/s/v/3365129/848e8027" target="_blank" class="cert-link">Verify Credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="cert-info">
+                                <h4>Ethical Hacking and Penetration Testing</h4>
+                                <span>C-DAC, Ministry of Electronics and IT, MeitY (2023)</span>
+                                <span class="cert-id">ID: 1503/325161/CG/(10)/2023</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="extracurricular-box scroll-reveal">
+                    <h3 class="extra-title"><i class="fa-solid fa-users"></i> Leadership & Extra</h3>
+                    <div class="extra-card">
+                        <h4>Student Coordinator (CSE)</h4>
+                        <h5>Institute Innovation Council (IIC), NIT Mizoram</h5>
+                        <p>Coordinated in technical and innovation-driven activities under Ministry of Education initiatives. Helped facilitate structured discussions and organize workshops, collaborative events, and sessions for student engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-tag">Let's Connect</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Feel free to reach out for internship, research collaborations, or full-time opportunities.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-details scroll-reveal">
+                        <h3>Contact Information</h3>
+                        <p>Have an exciting opportunity or just want to chat? Reach out to me through any of the channels below.</p>
+                        
+                        <div class="contact-methods">
+                            <!-- Personal Email -->
+                            <div class="contact-method-item">
+                                <div class="c-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                                <div class="c-info">
+                                    <span>Personal Email</span>
+                                    <div class="copy-wrapper">
+                                        <a href="mailto:sarveshmishraoffi@gmail.com">sarveshmishraoffi@gmail.com</a>
+                                        <button class="btn-copy" data-copy="sarveshmishraoffi@gmail.com" title="Copy Email"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- College Email -->
+                            <div class="contact-method-item">
+                                <div class="c-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="c-info">
+                                    <span>College/Academic Email</span>
+                                    <div class="copy-wrapper">
+                                        <a href="mailto:mt25cs008@nitmz.ac.in">mt25cs008@nitmz.ac.in</a>
+                                        <button class="btn-copy" data-copy="mt25cs008@nitmz.ac.in" title="Copy Email"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="contact-method-item">
+                                <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="c-info">
+                                    <span>Call Me</span>
+                                    <div class="copy-wrapper">
+                                        <a href="tel:+916387032699">+91 63870 32699</a>
+                                        <button class="btn-copy" data-copy="+916387032699" title="Copy Phone"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Locations -->
+                            <div class="contact-method-item">
+                                <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="c-info">
+                                    <span>Current Location</span>
+                                    <p>NIT Mizoram Campus, Aizawl, India</p>
+                                </div>
+                            </div>
+                            <div class="contact-method-item">
+                                <div class="c-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                                <div class="c-info">
+                                    <span>Permanent Location</span>
+                                    <p>Gorakhpur, Uttar Pradesh, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container scroll-reveal">
+                        <form id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" required placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" required placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" required placeholder="Discussion about internship opportunity">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" required rows="5" placeholder="Your message here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                            <div id="form-feedback" class="form-feedback"></div>
+                        </form>
+
+                        <!-- Messages Logger Sandbox Panel -->
+                        <div class="messages-log-container">
+                            <button type="button" class="btn-toggle-log" id="btn-toggle-log">
+                                <span>View Recruiter Message Log (Local Sandbox)</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="messages-log-content" id="messages-log-content">
+                                <p class="no-messages" id="no-messages-alert">No messages logged in this browser sandbox yet.</p>
+                                <ul class="messages-list" id="messages-list"></ul>
+                                <button type="button" class="btn-clear-log" id="btn-clear-log">Clear Logs</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Sarvesh Mishra. All Rights Reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/sarveshmishracse" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/sarveshmishracse" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:sarveshmishraoffi@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal Popup -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <div class="modal-header-info">
+                <span class="modal-tag" id="modal-project-tag">AI/ML</span>
+                <h3 class="modal-title" id="modal-project-title">Project Title</h3>
+            </div>
+            <div class="modal-body" id="modal-project-body">
+                <!-- Filled dynamically by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Back-to-Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Scroll to top" title="Scroll to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom JS -->
+    <script src="script.js?v=2"></script>
+</body>
+</html>
