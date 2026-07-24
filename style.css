@@ -1011,6 +1011,12 @@ body.light-theme header.scrolled {
     margin-top: 0.4rem;
 }
 
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
 /* -------------------------------------------------------------
  * Projects Section
  * ------------------------------------------------------------- */
