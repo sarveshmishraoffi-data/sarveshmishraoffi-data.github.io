@@ -340,9 +340,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <h4>Key Methodologies & Pipelines:</h4>
                 <ul>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Dataset & Label Mapping:</strong> Utilized a combination of 620 synthetic cheques and 112 real-world IDRBT cheques. Resolved class remapping issues to align mismatched labels across datasets.</li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Model Training:</strong> Evaluated both <strong>ResNet18-FPN</strong> (computationally efficient) and <strong>ResNet50-FPN</strong> backbones. Employed transfer learning with 50% frozen backbone weights, AdamW optimizer, and a ReduceLROnPlateau learning rate scheduler.</li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Interactive Tooling:</strong> Configured YOLOv8 serverless engines via Docker/Nuclio on the CVAT web interface to accelerate annotation speed.</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Dataset & Label Mapping:</strong> Utilized a combination of 620 synthetic cheques and 112 real-world IDRBT cheques. Resolved class remapping issues to align mismatched labels across datasets.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Model Training:</strong> Evaluated both <strong>ResNet18-FPN</strong> (computationally efficient) and <strong>ResNet50-FPN</strong> backbones. Employed transfer learning with 50% frozen backbone weights, AdamW optimizer, and a ReduceLROnPlateau learning rate scheduler.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Interactive Tooling:</strong> Configured YOLOv8 serverless engines via Docker/Nuclio on the CVAT web interface to accelerate annotation speed.</span></li>
                 </ul>
 
                 <h4>Quantitative Performance (On Held-Out Test Set):</h4>
@@ -391,9 +391,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Statistical regression modeling and predictive risk pipelines for healthcare insurance providers.</p>
                 <h4>Key Methodologies & Technologies:</h4>
                 <ul>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Feature Engineering:</strong> Preprocessed outliers, scaled demographic metrics (BMI index, smoking habit), and analyzed correlation grids.</li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Estimators:</strong> Built and compared Linear Regression, Random Forest, and Gradient Boosting models.</li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Model Metrics:</strong> Optimized R-squared (R²) accuracy index and scaled feature weights.</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Feature Engineering:</strong> Preprocessed outliers, scaled demographic metrics (BMI index, smoking habit), and analyzed correlation grids.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Estimators:</strong> Built and compared Linear Regression, Random Forest, and Gradient Boosting models.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Model Metrics:</strong> Optimized R-squared (R²) accuracy index and scaled feature weights.</span></li>
                 </ul>
             `
         },
@@ -404,9 +404,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Fully functional RESTful booking engine managing transaction pipelines, auth indexes, and maps.</p>
                 <h4>Key Methodologies & Technologies:</h4>
                 <ul>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>API Architectures:</strong> Developed router endpoints using Express.js and Node.js backend.</li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Data Mappings:</strong> Configured MongoDB collections, schema normalization, and user authorization cookies.</li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Cloud Storage:</strong> Connected Cloudinary media buckets for uploading property image galleries.</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>API Architectures:</strong> Developed router endpoints using Express.js and Node.js backend.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Data Mappings:</strong> Configured MongoDB collections, schema normalization, and user authorization cookies.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Cloud Storage:</strong> Connected Cloudinary media buckets for uploading property image galleries.</span></li>
                 </ul>
             `
         }
