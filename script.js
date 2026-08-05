@@ -334,15 +334,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsData = {
         cheque: {
             tag: "Computer Vision / Deep Learning",
-            title: "Cheque Field Detection using Faster R-CNN",
+            title: "Handwritten Field Extraction Model for Bank Cheques",
             body: `
-                <p>Developing deep learning assisted architectures for automated bank document parsing and indexing.</p>
-                <h4>Key Methodologies & Technologies:</h4>
+                <p>Completed a comprehensive research project under the <strong>Summer Research Internship Scheme (SRIS) - 2026</strong> at <strong>IIT (ISM) Dhanbad</strong>, supervised by <strong>Prof. Soumen Bag</strong>. Developed Faster R-CNN architectures to automatically localize and segment handwritten fields on bank cheques.</p>
+                
+                <h4>Key Methodologies & Pipelines:</h4>
                 <ul>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Model Zoo:</strong> Trained Faster R-CNN with ResNet-50-FPN and ResNet-18-FPN backbones on mixed SBI/IDRBT cheque datasets.</li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>CVAT & Nuclio:</strong> Configured YOLOv8 serverless engines via Docker/Nuclio on the CVAT web pipeline.</li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Data Pipelines:</strong> Automated label conversions from YOLO format text coordinates to Pascal VOC bounding XML blocks.</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Dataset & Label Mapping:</strong> Utilized a combination of 620 synthetic cheques and 112 real-world IDRBT cheques. Resolved class remapping issues to align mismatched labels across datasets.</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Model Training:</strong> Evaluated both <strong>ResNet18-FPN</strong> (computationally efficient) and <strong>ResNet50-FPN</strong> backbones. Employed transfer learning with 50% frozen backbone weights, AdamW optimizer, and a ReduceLROnPlateau learning rate scheduler.</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <strong>Interactive Tooling:</strong> Configured YOLOv8 serverless engines via Docker/Nuclio on the CVAT web interface to accelerate annotation speed.</li>
                 </ul>
+
+                <h4>Quantitative Performance (On Held-Out Test Set):</h4>
+                <div style="overflow-x: auto; margin: 1rem 0;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-color); font-weight: 600;">
+                                <th style="padding: 0.5rem;">Model Backbone</th>
+                                <th style="padding: 0.5rem;">Precision</th>
+                                <th style="padding: 0.5rem;">Recall</th>
+                                <th style="padding: 0.5rem;">F1-Score</th>
+                                <th style="padding: 0.5rem;">Mean IoU</th>
+                                <th style="padding: 0.5rem;">mAP@50</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 0.5rem; font-weight: 600; color: var(--accent-color);">ResNet18 + Signature</td>
+                                <td style="padding: 0.5rem;">92.42%</td>
+                                <td style="padding: 0.5rem;">96.06%</td>
+                                <td style="padding: 0.5rem; font-weight: 600;">94.21%</td>
+                                <td style="padding: 0.5rem;">81.20%</td>
+                                <td style="padding: 0.5rem;">97.08%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 0.5rem; font-weight: 600;">ResNet50 + Signature</td>
+                                <td style="padding: 0.5rem;">90.98%</td>
+                                <td style="padding: 0.5rem;">95.28%</td>
+                                <td style="padding: 0.5rem; font-weight: 600;">93.08%</td>
+                                <td style="padding: 0.5rem;">82.69%</td>
+                                <td style="padding: 0.5rem;">93.60%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                    *Conclusion: The lightweight ResNet18-FPN configuration achieved higher accuracy, F1-Score, and lower inference latency than the deeper ResNet50 model, making it ideal for mobile/server deployment.
+                </p>
+
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                    <a href="https://sarveshmishraoffi-data-sarvesh-portfolio.static.hf.space/assets/certificates/IIT_ISM_Dhanbad_Internship_Report.pdf" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Read Full Research Report</span>
+                    </a>
+                </div>
             `
         },
         predictmedix: {
