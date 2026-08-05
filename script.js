@@ -379,16 +379,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     </table>
                 </div>
 
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
                     *Conclusion: The lightweight ResNet18-FPN configuration achieved higher accuracy, F1-Score, and lower inference latency than the deeper ResNet50 model, making it ideal for mobile/server deployment.
                 </p>
-
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                    <a href="https://sarveshmishraoffi-data-sarvesh-portfolio.static.hf.space/assets/certificates/IIT_ISM_Dhanbad_Internship_Report.pdf" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.85rem;">
-                        <i class="fa-solid fa-file-pdf"></i>
-                        <span>Read Full Research Report</span>
-                    </a>
-                </div>
             `
         },
         predictmedix: {
