@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyCanvasWatermark(width, height) {
         ctx.save();
         ctx.font = `600 ${Math.max(16, Math.round(width / 36))}px Inter, sans-serif`;
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.fillStyle = 'rgba(100, 116, 139, 0.07)';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
@@ -239,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             url: targetUrl,
             cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
             cMapPacked: true,
+            standardFontDataUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/standard_fonts/',
             disableStream: false,
             disableAutoFetch: false
         });
