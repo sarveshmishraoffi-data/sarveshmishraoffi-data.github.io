@@ -1,0 +1,429 @@
+/* ==========================================================================
+   Secure Read-Only Book Reader Stylesheet
+   Author: Sarvesh Mishra Portfolio
+   ========================================================================== */
+
+:root {
+    --bg-dark: #07070e;
+    --bg-surface: #0e0d1b;
+    --bg-toolbar: rgba(14, 13, 27, 0.88);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --accent-cyan: #06b6d4;
+    --accent-purple: #8b5cf6;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --danger: #ef4444;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Reader Layout
+   ========================================================================== */
+#reader-app {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+}
+
+/* -----------------------------
+   Top Navigation & Toolbar
+   ----------------------------- */
+.reader-toolbar {
+    height: 64px;
+    background: var(--bg-toolbar);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    z-index: 100;
+    flex-shrink: 0;
+}
+
+.toolbar-left, .toolbar-center, .toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.03);
+    transition: var(--transition);
+}
+
+.btn-nav-back:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-cyan);
+}
+
+.book-meta {
+    margin-left: 0.5rem;
+}
+
+.book-title-display {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+}
+
+.book-author-display {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Page Navigation Group */
+.nav-btn {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-main);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.page-counter-container {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    padding: 0 0.5rem;
+}
+
+#page-input {
+    width: 48px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    color: var(--text-main);
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.88rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+#page-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.25);
+}
+
+/* Zoom & View Controls */
+.zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+}
+
+.zoom-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.zoom-btn:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#zoom-level-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    min-width: 48px;
+    text-align: center;
+}
+
+.badge-drm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+}
+
+/* -----------------------------
+   Main Viewer & Canvas Area
+   ----------------------------- */
+.reader-viewport {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.canvas-wrapper {
+    position: relative;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #181726;
+    transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+#pdf-canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    pointer-events: none; /* Prevent browser context menu or dragging */
+}
+
+/* Loading Spinner */
+.reader-loading-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    z-index: 50;
+    gap: 1.25rem;
+    transition: opacity 0.4s ease;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid rgba(6, 182, 212, 0.15);
+    border-top-color: var(--accent-cyan);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   DRM Security & Anti-Capture Protections
+   ========================================================================== */
+
+/* Privacy / Focus Blur Shield */
+.privacy-shield {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 7, 14, 0.92);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.privacy-shield.active {
+    display: flex;
+    opacity: 1;
+}
+
+.shield-card {
+    background: var(--bg-surface);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 460px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    animation: scaleUp 0.25s ease forwards;
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.shield-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--danger);
+}
+
+.shield-card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.shield-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.btn-resume {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.8rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+    transition: var(--transition);
+}
+
+.btn-resume:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(6, 182, 212, 0.45);
+}
+
+/* Security Alert Toast */
+#security-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    color: var(--text-main);
+    padding: 0.8rem 1.4rem;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+#security-toast i {
+    color: var(--danger);
+    font-size: 1.1rem;
+}
+
+#security-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   Print Blackout Stylesheet
+   ========================================================================== */
+@media print {
+    html, body, #reader-app, .reader-viewport, .canvas-wrapper, #pdf-canvas {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+/* ==========================================================================
+   Responsive Viewports
+   ========================================================================== */
+@media (max-width: 768px) {
+    .reader-toolbar {
+        padding: 0 0.85rem;
+    }
+    .book-meta {
+        display: none;
+    }
+    .badge-drm {
+        display: none;
+    }
+    .zoom-controls {
+        display: none;
+    }
+    .reader-viewport {
+        padding: 1.25rem 0.5rem;
+    }
+}

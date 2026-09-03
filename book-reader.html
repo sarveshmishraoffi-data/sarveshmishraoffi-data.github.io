@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>मनुष्य होने की यात्रा | Read-Only Preview - Sarvesh Mishra</title>
+    <meta name="description" content="Secure in-browser reader for 'मनुष्य होने की यात्रा' by Sarvesh Mishra. Read-only protected publication.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Reader Stylesheet -->
+    <link rel="stylesheet" href="reader.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="reader-app">
+        <!-- Reader Navigation Toolbar -->
+        <header class="reader-toolbar">
+            <div class="toolbar-left">
+                <a href="index.html" class="btn-nav-back" title="Back to Portfolio">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Portfolio</span>
+                </a>
+                <div class="book-meta">
+                    <div class="book-title-display">मनुष्य होने की यात्रा</div>
+                    <div class="book-author-display">Sarvesh Mishra • Read-Only Edition</div>
+                </div>
+            </div>
+
+            <div class="toolbar-center">
+                <button id="prev-page-btn" class="nav-btn" title="Previous Page (Left Arrow)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="page-counter-container">
+                    <span>Page</span>
+                    <input type="number" id="page-input" min="1" value="1" title="Jump to page">
+                    <span>of <strong id="page-count">--</strong></span>
+                </div>
+                <button id="next-page-btn" class="nav-btn" title="Next Page (Right Arrow)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="toolbar-right">
+                <div class="zoom-controls">
+                    <button id="zoom-out-btn" class="zoom-btn" title="Zoom Out">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span id="zoom-level-text">100%</span>
+                    <button id="zoom-in-btn" class="zoom-btn" title="Zoom In">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <button id="zoom-fit-btn" class="zoom-btn" title="Fit Width">
+                        <i class="fa-solid fa-arrows-left-right-to-line"></i>
+                    </button>
+                </div>
+
+                <button id="fullscreen-btn" class="nav-btn" title="Toggle Fullscreen">
+                    <i class="fa-solid fa-expand"></i>
+                </button>
+
+                <div class="badge-drm">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Protected Reader</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Reading Viewport -->
+        <main class="reader-viewport" id="viewport-container">
+            <!-- Loading Indicator -->
+            <div id="loading-overlay" class="reader-loading-overlay">
+                <div class="spinner"></div>
+                <div class="loading-text">Loading secure stream...</div>
+            </div>
+
+            <!-- Canvas Container -->
+            <div class="canvas-wrapper">
+                <canvas id="pdf-canvas"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loss-of-Focus / Screen Capture Shield -->
+    <div id="privacy-shield" class="privacy-shield">
+        <div class="shield-card">
+            <div class="shield-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h3>Protected Content</h3>
+            <p>
+                Window focus loss or screen capture activity detected.<br>
+                For author copyright protection, document preview is paused.
+            </p>
+            <button class="btn-resume" id="btn-resume">
+                <i class="fa-solid fa-eye"></i> Click to Resume Reading
+            </button>
+        </div>
+    </div>
+
+    <!-- Security Toast Notification -->
+    <div id="security-toast">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span id="security-toast-text">Protected action restricted.</span>
+    </div>
+
+    <!-- Mozilla PDF.js Core Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- Reader Engine & DRM Logic -->
+    <script src="reader.js"></script>
+</body>
+</html>
