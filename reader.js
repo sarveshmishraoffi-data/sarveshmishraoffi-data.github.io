@@ -34,9 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let scale = 1.0;
     let fitWidthScale = 1.0;
 
+    // Preview Limit Configuration
+    const MAX_PREVIEW_PAGES = 15;
+
     // DOM Elements
     const canvas = document.getElementById('pdf-canvas');
     const ctx = canvas.getContext('2d');
+    const canvasWrapper = document.getElementById('canvas-wrapper');
+    const previewLockOverlay = document.getElementById('preview-lock-overlay');
+    const btnReturnPreview = document.getElementById('btn-return-preview');
+    const drmBadge = document.querySelector('.badge-drm');
     const pageNumInput = document.getElementById('page-input');
     const pageCountElem = document.getElementById('page-count');
     const prevBtn = document.getElementById('prev-page-btn');
@@ -58,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderPage(num) {
         pageRendering = true;
         updateNavState();
+
+        const isRestricted = (num > MAX_PREVIEW_PAGES);
 
         pdfDoc.getPage(num).then((page) => {
             const viewportArea = document.querySelector('.reader-viewport');
@@ -81,6 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 ? [outputScale, 0, 0, outputScale, 0, 0]
                 : null;
 
+            // Apply in-memory canvas blur for pages beyond preview limit
+            if (isRestricted) {
+                ctx.filter = 'blur(16px)';
+            } else {
+                ctx.filter = 'none';
+            }
+
             const renderContext = {
                 canvasContext: ctx,
                 transform: transform,
@@ -90,8 +106,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const renderTask = page.render(renderContext);
 
             renderTask.promise.then(() => {
+                ctx.filter = 'none'; // reset filter
+                
                 // Apply indelible diagonal watermark directly to canvas pixels
                 applyCanvasWatermark(viewport.width * outputScale, viewport.height * outputScale);
+
+                // Update UI state based on preview restrictions
+                if (isRestricted) {
+                    if (canvasWrapper) canvasWrapper.classList.add('preview-locked');
+                    if (previewLockOverlay) previewLockOverlay.classList.add('active');
+                    if (drmBadge) {
+                        drmBadge.classList.add('restricted');
+                        drmBadge.innerHTML = '<i class="fa-solid fa-lock"></i> <span>Preview Restricted</span>';
+                    }
+                } else {
+                    if (canvasWrapper) canvasWrapper.classList.remove('preview-locked');
+                    if (previewLockOverlay) previewLockOverlay.classList.remove('active');
+                    if (drmBadge) {
+                        drmBadge.classList.remove('restricted');
+                        drmBadge.innerHTML = `<i class="fa-solid fa-shield-halved"></i> <span>Preview Page ${num}/15</span>`;
+                    }
+                }
 
                 pageRendering = false;
                 if (loadingOverlay) {
@@ -167,6 +202,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------------------
     if (prevBtn) prevBtn.addEventListener('click', onPrevPage);
     if (nextBtn) nextBtn.addEventListener('click', onNextPage);
+
+    if (btnReturnPreview) {
+        btnReturnPreview.addEventListener('click', () => {
+            pageNum = MAX_PREVIEW_PAGES;
+            queueRenderPage(pageNum);
+        });
+    }
 
     if (pageNumInput) {
         pageNumInput.addEventListener('change', () => {

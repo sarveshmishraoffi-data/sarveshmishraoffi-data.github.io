@@ -80,8 +80,34 @@
             </div>
 
             <!-- Canvas Container -->
-            <div class="canvas-wrapper">
+            <div class="canvas-wrapper" id="canvas-wrapper">
                 <canvas id="pdf-canvas"></canvas>
+
+                <!-- Preview Limit & Access Restricted Overlay -->
+                <div id="preview-lock-overlay" class="preview-lock-overlay">
+                    <div class="lock-card">
+                        <div class="lock-icon-circle">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <span class="lock-tag">Preview Limit Reached</span>
+                        <h3>Access Restricted</h3>
+                        <p>
+                            You do not have access to this section. Content is intentionally restricted beyond the first 15 preview pages.
+                        </p>
+                        <div class="lock-details">
+                            <span><i class="fa-solid fa-book-open"></i> Available Preview: <strong>Pages 1–15</strong></span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Author Protected Edition</span>
+                        </div>
+                        <div class="lock-actions">
+                            <button class="btn-lock-action btn-return-preview" id="btn-return-preview">
+                                <i class="fa-solid fa-arrow-left"></i> Return to Page 15
+                            </button>
+                            <a href="index.html#contact" class="btn-lock-action btn-contact-author">
+                                <i class="fa-solid fa-paper-plane"></i> Contact Author for Full Access
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
