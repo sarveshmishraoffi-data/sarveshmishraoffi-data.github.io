@@ -330,84 +330,122 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModalButtons = document.querySelectorAll('.open-modal-btn');
     const closeModalBtn = document.querySelector('.close-modal-btn');
 
-    // Projects Content Object
+    // Projects Content Object (Synchronized with latest CV & Research Benchmarks)
     const projectsData = {
         cheque: {
-            tag: "Computer Vision / Deep Learning",
-            title: "Handwritten Field Extraction Model for Bank Cheques",
+            tag: "Computer Vision / Deep Learning / Document AI",
+            title: "Handwritten Cheque Field Information Extraction Model (SRIS-2026)",
             body: `
-                <p>Completed a comprehensive research project under the <strong>Summer Research Internship Scheme (SRIS) - 2026</strong> at <strong>IIT (ISM) Dhanbad</strong>, supervised by <strong>Prof. Soumen Bag</strong>. Developed Faster R-CNN architectures to automatically localize and segment handwritten fields on bank cheques.</p>
+                <p>Completed a prestigious DST-funded research internship under the <strong>Summer Research Internship Scheme (SRIS) - 2026</strong> at <strong>IIT (ISM) Dhanbad</strong>, guided by <strong>Dr. Soumen Bag</strong> (Associate Professor, Dept. of CSE). Developed Faster R-CNN architectures to automatically localize and segment five critical handwritten fields on bank cheques: <em>Date, Name, Amount in Words, Amount in Numbers, and Signature</em>.</p>
                 
                 <h4>Key Methodologies & Pipelines:</h4>
                 <ul>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Dataset & Label Mapping:</strong> Utilized a combination of 620 synthetic cheques and 112 real-world IDRBT cheques. Resolved class remapping issues to align mismatched labels across datasets.</span></li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Model Training:</strong> Evaluated both <strong>ResNet18-FPN</strong> (computationally efficient) and <strong>ResNet50-FPN</strong> backbones. Employed transfer learning with 50% frozen backbone weights, AdamW optimizer, and a ReduceLROnPlateau learning rate scheduler.</span></li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Interactive Tooling:</strong> Configured YOLOv8 serverless engines via Docker/Nuclio on the CVAT web interface to accelerate annotation speed.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Dataset Design & Label Pipeline:</strong> Curated multi-stage datasets combining 620 synthetic cheques and 112 real-world IDRBT cheques, evaluated against unseen real State Bank of India (SBI) and multi-bank cheques. Converted YOLO coordinates to Pascal-VOC annotations using CVAT.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Transfer Learning & Training Strategy:</strong> Trained and benchmarked <strong>Faster R-CNN</strong> models with <strong>ResNet18-FPN</strong> and <strong>ResNet50-FPN</strong> backbones. Applied transfer learning with 50% frozen backbone weights, AdamW optimizer, and ReduceLROnPlateau scheduler to close the synthetic-to-real domain gap.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>AI-Assisted Auto-Annotation:</strong> Integrated SAM (Segment Anything Model) and YOLOv8 models into CVAT via Docker and Nuclio serverless functions, accelerating dataset annotation throughput.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Document OCR Pipelines:</strong> Built OCR-ready preprocessing and evaluation pipelines incorporating OpenCV, EasyOCR, and PaddleOCR for downstream information extraction.</span></li>
                 </ul>
 
-                <h4>Quantitative Performance (On Held-Out Test Set):</h4>
+                <h4>Quantitative Benchmark Evaluation:</h4>
                 <div style="overflow-x: auto; margin: 1rem 0;">
                     <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
                         <thead>
-                            <tr style="border-bottom: 2px solid var(--border-color); font-weight: 600;">
-                                <th style="padding: 0.5rem;">Model Backbone</th>
-                                <th style="padding: 0.5rem;">Precision</th>
-                                <th style="padding: 0.5rem;">Recall</th>
-                                <th style="padding: 0.5rem;">F1-Score</th>
-                                <th style="padding: 0.5rem;">Mean IoU</th>
-                                <th style="padding: 0.5rem;">mAP@50</th>
+                            <tr style="border-bottom: 2px solid var(--border-glass); font-weight: 600; color: var(--accent-secondary);">
+                                <th style="padding: 0.6rem;">Model Backbone & Evaluation</th>
+                                <th style="padding: 0.6rem;">Precision</th>
+                                <th style="padding: 0.6rem;">Recall</th>
+                                <th style="padding: 0.6rem;">F1-Score</th>
+                                <th style="padding: 0.6rem;">Mean IoU</th>
+                                <th style="padding: 0.6rem;">mAP@50</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 0.5rem; font-weight: 600; color: var(--accent-color);">ResNet18 + Signature</td>
-                                <td style="padding: 0.5rem;">92.42%</td>
-                                <td style="padding: 0.5rem;">96.06%</td>
-                                <td style="padding: 0.5rem; font-weight: 600;">94.21%</td>
-                                <td style="padding: 0.5rem;">81.20%</td>
-                                <td style="padding: 0.5rem;">97.08%</td>
+                            <tr style="border-bottom: 1px solid var(--border-glass); background: rgba(16, 185, 129, 0.08);">
+                                <td style="padding: 0.6rem; font-weight: 600; color: #10b981;">ResNet18-FPN (Unseen SBI Cheques)</td>
+                                <td style="padding: 0.6rem; font-weight: 700; color: #10b981;">98.40%</td>
+                                <td style="padding: 0.6rem;">94.62%</td>
+                                <td style="padding: 0.6rem; font-weight: 700; color: #10b981;">96.47%</td>
+                                <td style="padding: 0.6rem;">82.10%</td>
+                                <td style="padding: 0.6rem; font-weight: 700; color: #10b981;">98.00%</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 0.5rem; font-weight: 600;">ResNet50 + Signature</td>
-                                <td style="padding: 0.5rem;">90.98%</td>
-                                <td style="padding: 0.5rem;">95.28%</td>
-                                <td style="padding: 0.5rem; font-weight: 600;">93.08%</td>
-                                <td style="padding: 0.5rem;">82.69%</td>
-                                <td style="padding: 0.5rem;">93.60%</td>
+                            <tr style="border-bottom: 1px solid var(--border-glass);">
+                                <td style="padding: 0.6rem; font-weight: 600; color: var(--accent-primary);">ResNet18-FPN (5-Class + Signature)</td>
+                                <td style="padding: 0.6rem;">92.42%</td>
+                                <td style="padding: 0.6rem;">96.06%</td>
+                                <td style="padding: 0.6rem; font-weight: 600;">94.21%</td>
+                                <td style="padding: 0.6rem;">81.20%</td>
+                                <td style="padding: 0.6rem; font-weight: 600; color: var(--accent-primary);">97.08%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-glass);">
+                                <td style="padding: 0.6rem; font-weight: 600;">ResNet50-FPN (5-Class + Signature)</td>
+                                <td style="padding: 0.6rem;">90.98%</td>
+                                <td style="padding: 0.6rem;">95.28%</td>
+                                <td style="padding: 0.6rem; font-weight: 600;">93.08%</td>
+                                <td style="padding: 0.6rem;">82.69%</td>
+                                <td style="padding: 0.6rem;">93.60%</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-                    *Conclusion: The lightweight ResNet18-FPN configuration achieved higher accuracy, F1-Score, and lower inference latency than the deeper ResNet50 model, making it ideal for mobile/server deployment.
-                </p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://sarveshmishraoffi-data-sarvesh-portfolio.static.hf.space/assets/certificates/IIT_Dhanbad_Experience_Letter.pdf" target="_blank" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-file-contract"></i>
+                        <span>Verified IIT ISM Experience Letter</span>
+                    </a>
+                </div>
             `
         },
         predictmedix: {
-            tag: "Machine Learning",
-            title: "PredictMedix - Medical Cost Prediction",
+            tag: "Machine Learning & Explainable AI",
+            title: "PredictMedix — Medical Cost Prediction System",
             body: `
-                <p>Statistical regression modeling and predictive risk pipelines for healthcare insurance providers.</p>
+                <p>Designed and built an end-to-end Machine Learning pipeline and web application for healthcare insurance cost estimation and risk analysis, featuring Explainable AI (XAI).</p>
+                
                 <h4>Key Methodologies & Technologies:</h4>
                 <ul>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Feature Engineering:</strong> Preprocessed outliers, scaled demographic metrics (BMI index, smoking habit), and analyzed correlation grids.</span></li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Estimators:</strong> Built and compared Linear Regression, Random Forest, and Gradient Boosting models.</span></li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Model Metrics:</strong> Optimized R-squared (R²) accuracy index and scaled feature weights.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Data Engineering & Pipeline:</strong> Preprocessed structured clinical datasets, conducted Exploratory Data Analysis (EDA), engineered interaction features, scaled demographic variables (BMI, smoking status, age, region), and handled outliers using Pandas, NumPy, and Scikit-learn.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Model Training & Optimization:</strong> Implemented and evaluated Multiple Linear Regression, Random Forest, and Gradient Boosting (XGBoost). Optimized hyperparameters against MAE, RMSE, and R² metrics.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>SHAP Explainable AI (XAI):</strong> Integrated SHAP (SHapley Additive exPlanations) values to interpret individual patient predictions, showing feature importance waterfall plots for medical transparent billing.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Full-Stack Flask App:</strong> Developed a responsive Flask web application with user authentication, dual-mode database storage (MongoDB with local JSON fallback), 5-year longitudinal cost projections, and dynamic PDF invoice report generation.</span></li>
                 </ul>
+
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://huggingface.co/spaces/sarveshmishraoffi-data/PredictMedix" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Open Live Demo</span>
+                    </a>
+                    <a href="https://github.com/sarveshmishraoffi-data/Btech_Major_Project_PredictMedix" target="_blank" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-brands fa-github"></i>
+                        <span>View Source Code</span>
+                    </a>
+                </div>
             `
         },
         travelquest: {
-            tag: "Backend Web Development",
-            title: "Travel Quest - Hotel Booking Backend",
+            tag: "Full-Stack Backend Web Development",
+            title: "Travel Quest — Hotel Booking Web Application",
             body: `
-                <p>Fully functional RESTful booking engine managing transaction pipelines, auth indexes, and maps.</p>
+                <p>Designed and engineered a scalable backend and hotel booking platform with full CRUD workflows, rich map integration, and secure user session management.</p>
+                
                 <h4>Key Methodologies & Technologies:</h4>
                 <ul>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>API Architectures:</strong> Developed router endpoints using Express.js and Node.js backend.</span></li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Data Mappings:</strong> Configured MongoDB collections, schema normalization, and user authorization cookies.</span></li>
-                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Cloud Storage:</strong> Connected Cloudinary media buckets for uploading property image galleries.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>RESTful API Architecture:</strong> Designed clean, modular RESTful APIs using <strong>Node.js</strong> and <strong>Express.js</strong> for property listings, user profiles, reviews, and bookings.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Authentication & Security:</strong> Built robust user authentication and session management using <strong>Passport.js</strong>, author/owner authorization controls, <strong>Joi</strong> request schema validation, and centralized error-handling middleware.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Database & Schemas:</strong> Structured normalized <strong>MongoDB</strong> collections using <strong>Mongoose</strong> ODM, supporting complex query filters across 9 listing categories, price alerts, and similar-listing recommendations.</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i> <span><strong>Cloud Media & Maps Integration:</strong> Connected <strong>Cloudinary</strong> for cloud asset storage/image optimization and integrated <strong>Mapbox GL</strong> APIs for interactive geocoding and property location pins.</span></li>
                 </ul>
+
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://huggingface.co/spaces/sarveshmishraoffi-data/travel-quest" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Open Live Demo</span>
+                    </a>
+                    <a href="https://github.com/sarveshmishraoffi-data/Btech_Minor_Project_Travel_Quest" target="_blank" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-brands fa-github"></i>
+                        <span>View Source Code</span>
+                    </a>
+                </div>
             `
         }
     };
